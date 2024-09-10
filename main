@@ -1,8 +1,10 @@
 from tkinter import *
 import os
+import PIL
 import pandas
 from datetime import *
 from PIL import ImageTk, Image
+
 
 # main screen
 master = Tk()
@@ -185,7 +187,7 @@ def deposit():
     Label(deposit_screen, text="Amount: ", font=('Calibri', 12)).grid(row=2, sticky=W)
     deposit_notif = Label(deposit_screen, font=('Calibri', 12))
     deposit_notif.grid(row=4, sticky=N, pady=5)
-    Label(deposit_screen, text=datetime, font=('Calibri', 12)).grid(row=3, sticky=E, pady=5)
+    Label(deposit_screen, text=datetime, font=('Calibri', 12)).grid(row=3,column=1, sticky=E, pady=5)
 
     # entries
     Entry(deposit_screen, textvariable=amount).grid(row=2, column=1)
@@ -251,7 +253,7 @@ def withdraw():
     Label(withdraw_screen, text="Amount: ", font=('Calibri', 12)).grid(row=2, sticky=W)
     withdraw_notif = Label(withdraw_screen, font=('Calibri', 12))
     withdraw_notif.grid(row=4, sticky=N, pady=5)
-    Label(withdraw_screen, text=datetime, font=('Calibri', 12)).grid(row=3, sticky=E, pady=5)
+    Label(withdraw_screen, text=datetime, font=('Calibri', 12)).grid(row=3, column=1, sticky=E, pady=5)
 
     # entries
     Entry(withdraw_screen, textvariable=withdraw_amount).grid(row=2, column=1)
@@ -429,10 +431,19 @@ def login():
         grid(row=3, sticky=W, pady=5, padx=5)
 
 
-# image import
+# image import - under construction D:
+'''
+image = PIL.Image.open("bank pfp.png")
+img = ImageTk.PhotoImage(image)
+l = Label(image=img)
+l.pack()
+
+
 img = Image.open('bank pfp.png')
+img = ImageTk.PhotoImage()
 img = img.resize((150, 150))
-img = ImageTk.PhotoImage(img)
+imglabel = Label(image=img).grid(row=1, column=1)        
+'''
 
 # labels
 Label(master, text="MLSN Bank App", font=('Calibri', 14)).grid(row=0, sticky=N, pady=10)
